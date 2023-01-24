@@ -2,12 +2,18 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 
+import userRouter from "./routes/user.js";
+
 const app = express();
 dotenv.config();
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hi...this is home page");
 });
+
+app.use("/user", userRouter);
 
 mongoose.set("strictQuery", true);
 
