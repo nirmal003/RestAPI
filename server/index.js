@@ -11,8 +11,18 @@ app.get("/", (req, res) => {
 
 mongoose.set("strictQuery", true);
 
-mongoose.connect(process.env.DB_CONNECTION, console.log("DB"));
+mongoose
+  .connect(process.env.DB_CONNECTION, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() =>
+    app.listen(5000, () => {
+      console.log("sever running on 5000 port");
+    })
+  )
+  .catch((err) => console.log(err.message));
 
-app.listen(5000, (req, res) => {
-  console.log("sever running on 5000 port");
-});
+// app.listen(5000, () => {
+//   console.log("sever running on 5000 port");
+// });
