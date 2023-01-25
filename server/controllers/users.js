@@ -1,4 +1,3 @@
-// import mongoose from "mongoose";
 import users from "../models/users.js";
 
 export const getAllUsers = async (req, res) => {
