@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
   res.send("Hi...this is home page");
 });
 
-app.use("/user", userRouter);
+app.use("/users", userRouter);
 
 mongoose.set("strictQuery", true);
 
