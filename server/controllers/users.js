@@ -45,10 +45,6 @@ export const removeUser = async (req, res) => {
   const { id: _id } = req.params;
   console.log(_id);
 
-  // if (!mongoose.Types.ObjectId.isValid(_id)) {
-  //   return res.status(404).send("Not Valid");
-  // }
-
   try {
     const removedUser = await users.deleteOne({ _id });
 
@@ -57,6 +53,7 @@ export const removeUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 export const updateUser = async (req, res) => {
   const { id: _id } = req.params;
   console.log(req.body);
