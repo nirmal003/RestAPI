@@ -11,12 +11,12 @@ export const getAllUsers = async (req, res) => {
 };
 
 export const postUser = async (req, res) => {
-  console.log(req.body);
+  const { name, age } = req.body;
 
   try {
     const user = await new users({
-      name: req.body.name,
-      age: req.body.age,
+      name: name,
+      age: age,
     }).save();
 
     // const saveUser = await user.save();
